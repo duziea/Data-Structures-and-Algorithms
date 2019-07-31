@@ -34,17 +34,12 @@ streamChecker.query('l');          // 返回 true，因为 'kl' 在字词表中�
 '''
 class Node():
     def __init__(self):
-       # Note that using dictionary for children (as in this implementation) would not allow lexicographic sorting mentioned in the next section (Sorting),
-       # because ordinary dictionary would not preserve the order of the keys
        self.children = {}  # mapping from character ==> Node
        self.isword = False
 
 class Trie():
     def __init__(self):
-        self.root = Node()
-    
-    # def getNode(self):
-    #     return Node()
+        self.root = Node()    
 
     def insert(self,strs):
         node = self.root
@@ -65,7 +60,7 @@ class Trie():
                 return True
         return False
         
- 
+
 class StreamChecker:
 
     def __init__(self, words):
