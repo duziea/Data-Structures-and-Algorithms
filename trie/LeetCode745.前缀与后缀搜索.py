@@ -1,8 +1,6 @@
 class Node():
     def __init__(self):
-       # Note that using dictionary for children (as in this implementation) would not allow lexicographic sorting mentioned in the next section (Sorting),
-       # because ordinary dictionary would not preserve the order of the keys
-       self.children = {}  # mapping from character ==> Node
+       self.children = {}  
        self.isword = False
        self.index = 0
 
