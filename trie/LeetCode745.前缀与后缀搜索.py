@@ -1,3 +1,37 @@
+'''
+给定多个 words，words[i] 的权重为 i 。
+
+设计一个类 WordFilter 实现函数WordFilter.f(String prefix, String suffix)。这个函数将返回具有前缀 prefix 和后缀suffix 的词的最大权重。如果没有这样的词，返回 -1。
+
+例子:
+
+输入:
+WordFilter(["apple"])
+WordFilter.f("a", "e") // 返回 0
+WordFilter.f("b", "") // 返回 -1
+
+注意:
+
+    words的长度在[1, 15000]之间。
+    对于每个测试用例，最多会有words.length次对WordFilter.f的调用。
+    words[i]的长度在[1, 10]之间。
+    prefix, suffix的长度在[0, 10]之前。
+    words[i]和prefix, suffix只包含小写字母。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/prefix-and-suffix-search
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+思路:
+Node增加一个权重属性，插入词同时赋予权重，
+fprefix()，接受前缀，返回该前缀的最后一个字符代表的node
+finprefixwords(),接受前缀，fprefix()返回的node，words用于存储所有含有该前缀的词和权重，返回words
+f(),接受前缀、后缀，调用fprefix，finprefixwords，对返回的words，
+调用endswith方法（这里偷懒了，是否应该再建一个后缀树，）筛选出以后缀结尾的词的权重存入list，
+最后返回list中最大权重
+
+'''
+
 class Node():
     def __init__(self):
        self.children = {}  
